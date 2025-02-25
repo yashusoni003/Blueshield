@@ -70,8 +70,7 @@ const  Header = (props) =>{
           </Typography>
 
           </Box>
-          <Box sx={{ display: { xs: 'none', sm: 'block' },backgroundColor: "rgba(255, 255, 255, 0.2)", // Semi-transparent white
-      backdropFilter: "blur(10px)"}}>
+          <Box clasaName="MiddlePartNav" sx={{ display: { xs: 'none', sm: 'block' }}}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: 'white' }}>
                 {item}
