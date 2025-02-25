@@ -73,7 +73,7 @@ const  Header = (props) =>{
           <Box sx={{ display: { xs: 'none', sm: 'block' },backgroundColor: "rgba(255, 255, 255, 0.2)", // Semi-transparent white
       backdropFilter: "blur(10px)"}}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: 'black' }}>
+              <Button key={item} sx={{ color: 'white' }}>
                 {item}
               </Button>
             ))}
@@ -98,7 +98,7 @@ const  Header = (props) =>{
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ p: 3 }}>
+      {/* <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
         <Typography>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique unde
@@ -134,7 +134,7 @@ const  Header = (props) =>{
           Voluptates perspiciatis, in pariatur impedit, nam facilis libero dolorem
           dolores sunt inventore perferendis, aut sapiente modi nesciunt.
         </Typography>
-      </Box>
+      </Box> */}
     </Box>
   );
 }
