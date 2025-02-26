@@ -14,9 +14,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import '../header/header.styles.scss'
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['Home', 'About', 'Sevices','Project'];
 
 const  Header = (props) =>{
   const { window } = props;
@@ -27,19 +28,24 @@ const  Header = (props) =>{
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2,width:'30%' }}>
-        MUI
+    <Box   onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+      <Typography variant="h6" sx={{ my: 2,width:'90%',fontFamily:'Major Mono Display',color:'#0ea6ff' }}>
+        Blueshield Energies
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+          <ListItem  key={item} disablePadding>
+            <ListItemButton  sx={{ textAlign: 'center' }}>
+              <ListItemText className='SideNavLinks' primary={item}  />
             </ListItemButton>
           </ListItem>
         ))}
+          <ListItem  key='Contact Us' disablePadding>
+            <ListItemButton  sx={{ textAlign: 'center' }}>
+              <ListItemText className='SideNavLinks' primary='Contact Us'  />
+            </ListItemButton>
+          </ListItem>
       </List>
     </Box>
   );
@@ -49,39 +55,35 @@ const  Header = (props) =>{
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav" sx={{backgroundColor:"transparent"}}>
+      <AppBar component="nav" sx={{backgroundColor:"transparent",boxShadow:'none'}}>
         <Toolbar sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+<Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+  <Box component="img" src="/logo.png" alt="Logo" sx={{ width: '3rem', height: "auto",borderRadius:'50%' }} />
+  <Typography className='CompanyName' variant="h6" sx={{ fontWeight: "bold" }}>BlueShield Energies</Typography>
+</Box>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' },backgroundColor:"transparent" }}
+            sx={{ mr: 2, display: { sm: 'none' },backgroundColor:"#12c4f9",borderRadius:'8px' }}
           >
             <MenuIcon />
           </IconButton>
-          <Box>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
 
-          </Box>
-          <Box clasaName="MiddlePartNav" sx={{ display: { xs: 'none', sm: 'block' }}}>
+          <Box className="MiddlePartNav" sx={{ display: { xs: 'none', sm: 'block' }}}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: 'white' }}>
                 {item}
               </Button>
             ))}
           </Box>
-          <Button sx={{color: 'black'}} >ee</Button>
+          <Button className='ContactUsBtn' sx={{backgroundColor:"white"}} >Contact Us</Button>
         </Toolbar>
       </AppBar>
       <nav>
         <Drawer
+        className='SideDrawer'
           container={container}
           variant="temporary"
           open={mobileOpen}

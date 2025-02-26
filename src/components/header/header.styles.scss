@@ -5,4 +5,29 @@
     padding: 0.4rem;
     border-radius: 9px;
 
+
+}
+.ContactUsBtn{
+color: #378923 !important;
+box-shadow: -5px 8px 1px #37892380;
+border-radius: 22px !important;
+
+
+@media only screen and (max-width: 600px) {
+   display: none !important;
+  }
+}
+
+.CompanyName{
+    font-family: "Cinzel", serif !important;
+  font-weight: 900 !important;
+  font-style: normal;
+}
+
+.SideNavLinks{
+    color: #006000;
+    background: #34ff56;
+    padding: 0.3rem !important;
+    border-radius: 36px;
+    font-size: 33px !important;
 }
