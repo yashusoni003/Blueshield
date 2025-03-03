@@ -1,9 +1,17 @@
 import { Fragment } from 'react';
-import { Avatar, AvatarGroup, Box, Button, Card, CardActionArea, CardContent, CardMedia, Divider, Grid, Grid2, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Avatar, AvatarGroup, Box, Button, Card, CardActionArea, CardContent, CardMedia, Divider, Grid, Grid2, Typography } from "@mui/material";
 import StarIcon from '@mui/icons-material/Star';
 import { motion } from 'framer-motion';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
+import HomeIcon from '@mui/icons-material/Home';
+import FactoryIcon from '@mui/icons-material/Factory';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import EnergySavingsLeafIcon from '@mui/icons-material/EnergySavingsLeaf';
+import SavingsIcon from '@mui/icons-material/Savings';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import '../home/home.style.scss'
+import { ArrowDownward } from '@mui/icons-material';
 
 
 
@@ -202,7 +210,7 @@ const Home = () => {
 
 
 
-      <Box sx={{ width: '90%', display: 'flex', justifyContent: 'center', padding: '1rem', flexDirection: 'column',alignItems:'center' }}>
+      <Box sx={{ width: '90%', display: 'flex', justifyContent: 'center', padding: '1rem', flexDirection: 'column', alignItems: 'center' }}>
 
 
         <Box sx={{ display: 'flex', justifyContent: 'center', width: '80%', flexDirection: 'column', alignItems: 'center' }}>
@@ -211,18 +219,18 @@ const Home = () => {
           <Box sx={{ backgroundColor: "#e7f2ff", padding: '1rem', borderRadius: '30px', marginTop: '1rem' }}>
             <Typography sx={{ color: '#138Aff', fontFamily: 'Kanit' }}>Goverment Subsudy Initiatve</Typography>
           </Box>
-          <Typography sx={{ marginTop: '1rem',fontFamily:'Kanit',color:'#015789' }}> Get up to 78,000 on Every 3kW Solar Installation</Typography>
+          <Typography sx={{ marginTop: '1rem', fontFamily: 'Kanit', color: '#015789' }}> Get up to 78,000 on Every 3kW Solar Installation</Typography>
         </Box>
 
-        <Box sx={{ display: 'flex',marginTop:'3rem',flexDirection:{xs:'column',sm:'row'} }}>
+        <Box sx={{ display: 'flex', marginTop: '3rem', flexDirection: { xs: 'column', sm: 'row' } }}>
 
-          <Box className="rightPartContainer" sx={{ display: 'flex', flexDirection: 'column', width: '50%',padding:'1rem' }}>
-            <Typography variant='h4' sx={{fontFamily:'Kanit'}}><span style={{color:'#015789'}}> Apply Now</span> and Receive Your Subsidy in <span style={{color:'#015789'}}>90 Days</span></Typography>
+          <Box className="rightPartContainer" sx={{ display: 'flex', flexDirection: 'column', width: '50%', padding: '1rem' }}>
+            <Typography variant='h4' sx={{ fontFamily: 'Kanit' }}><span style={{ color: '#015789' }}> Apply Now</span> and Receive Your Subsidy in <span style={{ color: '#015789' }}>90 Days</span></Typography>
 
-            <Typography sx={{marginTop:'1rem',color:'#5aadff',fontFamily:'Zain',fontSize:'1.2rem'}}>Total Subsidy for system larger than 3kW capped at Rs 78.000</Typography>
+            <Typography sx={{ marginTop: '1rem', color: '#5aadff', fontFamily: 'Zain', fontSize: '1.2rem' }}>Total Subsidy for system larger than 3kW capped at Rs 78.000</Typography>
 
-            <Typography sx={{marginTop:'1rem',color:'#015789',fontFamily:'Rowdies'}}>Solar Capacity for household</Typography>
-            <Box sx={{ flexGrow: 1,marginTop:'1rem' }}>
+            <Typography sx={{ marginTop: '1rem', color: '#015789', fontFamily: 'Rowdies' }}>Solar Capacity for household</Typography>
+            <Box sx={{ flexGrow: 1, marginTop: '1rem' }}>
               <Grid2 container spacing={0} sx={{ borderCollapse: "collapse", boxShadow: 'none', border: '2px solid #13A8ff', borderRadius: '15px', width: '55%', height: '27rem' }} >
                 <Grid2 size={4} sx={{ border: '1px solid #13A8ff', boxShadow: 'none', borderRadius: '10px 0px 0px 0px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Typography sx={{ textAlign: 'center', fontFamily: 'cursive', color: '#015789' }}>Average Monthly Electricity Consuption (unit)</Typography>
@@ -306,17 +314,17 @@ const Home = () => {
             <Box
               component='img'
               src='/SolarPanel.png'
-              sx={{width:'35rem'}}
+              sx={{ width: '35rem' }}
             />
 
             <Box>
 
 
-              <Typography sx={{color:'#5aadff',fontFamily:'Rowdies'}}><span style={{fontSize:'50PX',color:'#015789'}}>U</span>nlock Maximum Savings with the Government Subsidy!</Typography>
+              <Typography sx={{ color: '#5aadff', fontFamily: 'Rowdies' }}><span style={{ fontSize: '50PX', color: '#015789' }}>U</span>nlock Maximum Savings with the Government Subsidy!</Typography>
 
-              <Typography sx={{marginTop:'1rem',color:'#015789',fontFamily:'Rowdies'}}>78,000x2=1,56,000 </Typography>
+              <Typography sx={{ marginTop: '1rem', color: '#015789', fontFamily: 'Rowdies' }}>78,000x2=1,56,000 </Typography>
 
-              <Typography sx={{marginTop:'1rem',color:'#5aadff',fontFamily:'Rowdies'}}>For a 3 kW rooftop solar installation, you could receive a subsidy of *78,000. If you're planning a larger installation, the subsidy scales with each unit-two 3 kW systems would allow a subsidy of ₹1,56,000. Take advantage of this substantial financial support to make solar energy more affordable and accessible for your home or business.</Typography>
+              <Typography sx={{ marginTop: '1rem', color: '#5aadff', fontFamily: 'Rowdies' }}>For a 3 kW rooftop solar installation, you could receive a subsidy of *78,000. If you're planning a larger installation, the subsidy scales with each unit-two 3 kW systems would allow a subsidy of ₹1,56,000. Take advantage of this substantial financial support to make solar energy more affordable and accessible for your home or business.</Typography>
 
             </Box>
 
@@ -325,6 +333,199 @@ const Home = () => {
         </Box>
 
 
+      </Box>
+
+
+      <Box sx={{ width: '100%', background: '#e7f2ff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Box sx={{ width: { xs: "100%", sm: '60%' }, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', padding: '1rem' }}>
+          <Typography variant='h4' sx={{ textAlign: 'center', fontFamily: 'Rowdies', color: '#015789' }}>Top Benefits Of Going Solar</Typography>
+          <Grid2 container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ marginTop: '2rem' }}>
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
+            component={motion.div}
+            initial={{scale:0.5,opacity:0}}
+            whileInView={{scale:1,opacity:1}}
+            transition={{duration:0.8}}
+            >
+              <RequestQuoteIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
+              <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Save On Electricity Bills</Typography>
+            </Grid2>
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
+                        component={motion.div}
+                        initial={{scale:0.5,opacity:0}}
+                        whileInView={{scale:1,opacity:1}}
+                        transition={{duration:0.8}}
+            >
+              <HomeIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
+              <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Increase Your Home’s Value</Typography>
+
+            </Grid2>
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
+                        component={motion.div}
+                        initial={{scale:0.5,opacity:0}}
+                        whileInView={{scale:1,opacity:1}}
+                        transition={{duration:0.8}}
+            >
+              <FactoryIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
+              <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Reduce Pollution</Typography>
+
+            </Grid2>
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem' }}
+                        component={motion.div}
+                        initial={{scale:0.5,opacity:0}}
+                        whileInView={{scale:1,opacity:1}}
+                        transition={{duration:0.8}}
+            >
+              <MonetizationOnIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
+              <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Profit From Your Solar Panels</Typography>
+
+            </Grid2>
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
+                        component={motion.div}
+                        initial={{scale:0.5,opacity:0}}
+                        whileInView={{scale:1,opacity:1}}
+                        transition={{duration:0.8}}
+            >
+              <EnergySavingsLeafIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
+              <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Use Energy Guilt-Free</Typography>
+
+            </Grid2>
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
+                        component={motion.div}
+                        initial={{scale:0.5,opacity:0}}
+                        whileInView={{scale:1,opacity:1}}
+                        transition={{duration:0.8}}
+            >
+              <SavingsIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
+              <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Earn Tax Credits & Incentives</Typography>
+
+            </Grid2>
+          </Grid2>
+        </Box>
+      </Box>
+
+
+      <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Box sx={{ width: '80%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' ,padding:'1rem'}}>
+          <Typography variant='h4' sx={{color:'#015789',fontFamily:'Rowdies'}}>View FAQ'S About Solar Energy</Typography>
+          <Box sx={{width:'50%',display:'flex',flexDirection:'column',rowGap:'1rem',marginTop:'1rem'}}>
+
+
+          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
+          component={motion.div}
+          initial={{x:-100,opacity:0}}
+          whileInView={{x:0,opacity:1}}
+          transition={{duration:0.8}}
+          >
+            <AccordionSummary
+              expandIcon={<ArrowDownwardIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>How do solar panels work?</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{fontFamily:'Kanit'}}>
+                Solar panels convert sunlight into electricity using photovoltaic (PV) cells. This electricity can power your home or business, reducing your reliance on the grid.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion  sx={{padding:'1rem',borderRadius:'10px'}}
+             component={motion.div}
+             initial={{x:-150,opacity:0}}
+             whileInView={{x:0,opacity:1}}
+             transition={{duration:0.8}}
+          >
+            <AccordionSummary
+              expandIcon={<ArrowDownwardIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography component="span"  variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}> How long does it take to install solar panels?</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography  sx={{fontFamily:'Kanit'}}>
+                The installation process typically takes 1-3 days, but the entire process, including permits and approvals, may take a few weeks.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
+                       component={motion.div}
+                       initial={{x:-200,opacity:0}}
+                       whileInView={{x:0,opacity:1}}
+                       transition={{duration:0.8}}
+          >
+            <AccordionSummary
+              expandIcon={<ArrowDownwardIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>Do solar panels work on cloudy or rainy days?</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{fontFamily:'Kanit'}}>
+                Yes, but efficiency may be reduced. Solar panels still generate electricity in indirect sunlight, though at a lower capacity.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
+                       component={motion.div}
+                       initial={{x:-250,opacity:0}}
+                       whileInView={{x:0,opacity:1}}
+                       transition={{duration:0.8}}
+          >
+            <AccordionSummary
+              expandIcon={<ArrowDownwardIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>What is the lifespan of solar panels?</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{fontFamily:'Kanit'}}>
+                Most solar panels last 25-30 years, with some continuing to generate power beyond that period at reduced efficiency.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
+                       component={motion.div}
+                       initial={{x:-300,opacity:0}}
+                       whileInView={{x:0,opacity:1}}
+                       transition={{duration:0.8}}
+          >
+            <AccordionSummary
+              expandIcon={<ArrowDownwardIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>How much maintenance do solar panels require?</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{fontFamily:'Kanit'}}>
+                Very little. Routine cleaning and occasional inspections ensure optimal performance.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
+                       component={motion.div}
+                       initial={{x:-350,opacity:0}}
+                       whileInView={{x:0,opacity:1}}
+                       transition={{duration:0.8}}
+          >
+            <AccordionSummary
+              expandIcon={<ArrowDownwardIcon />}
+              aria-controls="panel1-content"
+              id="panel1-header"
+            >
+              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>Can solar panels be installed on any type of roof?</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{fontFamily:'Kanit'}}>
+                Solar panels can be installed on most roof types, but factors like angle, material, and shading affect suitability. Our experts will assess your roof before installation.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          </Box>
+        </Box>
       </Box>
 
     </Fragment>
