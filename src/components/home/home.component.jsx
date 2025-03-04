@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
-import { Accordion, AccordionDetails, AccordionSummary, Avatar, AvatarGroup, Box, Button, Card, CardActionArea, CardContent, CardMedia, Divider, Grid, Grid2, Typography } from "@mui/material";
+import { Fragment, useState } from 'react';
+import { Accordion, AccordionDetails, AccordionSummary, Avatar, AvatarGroup, Box, Button, Card, CardActionArea, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Grid, Grid2, TextField, Typography } from "@mui/material";
 import StarIcon from '@mui/icons-material/Star';
 import { motion } from 'framer-motion';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
@@ -14,8 +14,6 @@ import '../home/home.style.scss'
 import { ArrowDownward } from '@mui/icons-material';
 
 
-
-const Home = () => {
 
   const serviceObj = [
 
@@ -34,12 +32,78 @@ const Home = () => {
     }
   ]
 
+  const Home = () => {
+    
+    const [open, setOpen] = useState(false);
+  
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+    
   return (
     <Fragment>
+  {/* Quote Form */}
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        slotProps={{
+          paper: {
+            component: 'form',
+            onSubmit: (event) => {
+              event.preventDefault();
+              const formData = new FormData(event.currentTarget);
+              const formJson = Object.fromEntries(formData.entries());
+              const email = formJson.email;
+              console.log(email);
+               handleClose()
+
+            },
+          },
+        }}
+      >
+        <DialogTitle>Subscribe</DialogTitle>
+        <DialogContent sx={{display:'flex',flexDirection:'column',rowGap:'1rem'}}>
+          <DialogContentText>
+            To subscribe to this website, please enter your email address here. We
+            will send updates occasionally.
+          </DialogContentText>
+          <TextField
+          required
+          id="standard-required"
+          label="First Name"
+          defaultValue=""
+          variant="standard"
+        />
+            <TextField
+          required
+          id="standard-required"
+          label="Last Name"
+          defaultValue=""
+          variant="standard"
+        />
+            <TextField
+          required
+          id="standard-required"
+          label="Phone Number"
+          defaultValue=""
+          variant="standard"
+        />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button type="submit">Submit</Button>
+        </DialogActions>
+      </Dialog>
+
       <Box className="DisplayImage" sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography variant='h3' sx={{ color: "white", width: "70%", textAlign: "center", fontFamily: "Rowdies", fontSize: { xs: '2rem', sm: '3rem' } }} >Electricity bills? Never heard of them.BlueShield Energies  has changed the game!</Typography>
         <Typography variant='h6' sx={{ textAlign: 'center', color: 'white', width: '50%', marginTop: '1rem', fontFamily: 'Zain' }}>Let the sun fuel your home while you focus on what truly matters and say goodbye to rising electricity bills forever.</Typography>
-        <Button sx={{ background: '#42f72d', borderRadius: '21px', fontFamily: 'Zain', textTransform: 'none', color: '#0f6000', fontWeight: '600', marginTop: '1rem', letterSpacing: '1px' }}>&rarr; Get A Free Quote</Button>
+        <Button sx={{ background: '#42f72d', borderRadius: '21px', fontFamily: 'Zain', textTransform: 'none', color: '#0f6000', fontWeight: '600', marginTop: '1rem', letterSpacing: '1px' }}onClick={handleClickOpen} >&rarr; Get A Free Quote</Button>
       </Box>
       <Box sx={{ width: { sm: '80%', xs: '100%' }, display: 'flex', marginTop: '3rem', padding: '2rem', flexDirection: { xs: 'column', sm: 'row' } }}>
 
@@ -340,60 +404,60 @@ const Home = () => {
         <Box sx={{ width: { xs: "100%", sm: '60%' }, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', padding: '1rem' }}>
           <Typography variant='h4' sx={{ textAlign: 'center', fontFamily: 'Rowdies', color: '#015789' }}>Top Benefits Of Going Solar</Typography>
           <Grid2 container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ marginTop: '2rem' }}>
-            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
-            component={motion.div}
-            initial={{scale:0.5,opacity:0}}
-            whileInView={{scale:1,opacity:1}}
-            transition={{duration:0.8}}
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ scale: 0.5, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
               <RequestQuoteIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
               <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Save On Electricity Bills</Typography>
             </Grid2>
-            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
-                        component={motion.div}
-                        initial={{scale:0.5,opacity:0}}
-                        whileInView={{scale:1,opacity:1}}
-                        transition={{duration:0.8}}
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ scale: 0.5, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
               <HomeIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
               <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Increase Your Home’s Value</Typography>
 
             </Grid2>
-            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
-                        component={motion.div}
-                        initial={{scale:0.5,opacity:0}}
-                        whileInView={{scale:1,opacity:1}}
-                        transition={{duration:0.8}}
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ scale: 0.5, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
               <FactoryIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
               <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Reduce Pollution</Typography>
 
             </Grid2>
             <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem' }}
-                        component={motion.div}
-                        initial={{scale:0.5,opacity:0}}
-                        whileInView={{scale:1,opacity:1}}
-                        transition={{duration:0.8}}
+              component={motion.div}
+              initial={{ scale: 0.5, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
               <MonetizationOnIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
               <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Profit From Your Solar Panels</Typography>
 
             </Grid2>
-            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
-                        component={motion.div}
-                        initial={{scale:0.5,opacity:0}}
-                        whileInView={{scale:1,opacity:1}}
-                        transition={{duration:0.8}}
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ scale: 0.5, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
               <EnergySavingsLeafIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
               <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Use Energy Guilt-Free</Typography>
 
             </Grid2>
-            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem',borderRadius:'10px' }}
-                        component={motion.div}
-                        initial={{scale:0.5,opacity:0}}
-                        whileInView={{scale:1,opacity:1}}
-                        transition={{duration:0.8}}
+            <Grid2 size={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', background: 'white', padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ scale: 0.5, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
               <SavingsIcon sx={{ width: '10rem', height: '5rem', color: '#015789' }} />
               <Typography variant='h5' sx={{ textAlign: 'center', fontFamily: 'Kanit' }}>Earn Tax Credits & Incentives</Typography>
@@ -405,125 +469,125 @@ const Home = () => {
 
 
       <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Box sx={{ width: '80%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' ,padding:'1rem'}}>
-          <Typography variant='h4' sx={{color:'#015789',fontFamily:'Rowdies'}}>View FAQ'S About Solar Energy</Typography>
-          <Box sx={{width:'50%',display:'flex',flexDirection:'column',rowGap:'1rem',marginTop:'1rem'}}>
+        <Box sx={{ width: '80%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', padding: '1rem' }}>
+          <Typography variant='h4' sx={{ color: '#015789', fontFamily: 'Rowdies' }}>View FAQ'S About Solar Energy</Typography>
+          <Box sx={{ width: '50%', display: 'flex', flexDirection: 'column', rowGap: '1rem', marginTop: '1rem' }}>
 
 
-          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
-          component={motion.div}
-          initial={{x:-100,opacity:0}}
-          whileInView={{x:0,opacity:1}}
-          transition={{duration:0.8}}
-          >
-            <AccordionSummary
-              expandIcon={<ArrowDownwardIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
+            <Accordion sx={{ padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
-              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>How do solar panels work?</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography sx={{fontFamily:'Kanit'}}>
-                Solar panels convert sunlight into electricity using photovoltaic (PV) cells. This electricity can power your home or business, reducing your reliance on the grid.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion  sx={{padding:'1rem',borderRadius:'10px'}}
-             component={motion.div}
-             initial={{x:-150,opacity:0}}
-             whileInView={{x:0,opacity:1}}
-             transition={{duration:0.8}}
-          >
-            <AccordionSummary
-              expandIcon={<ArrowDownwardIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
+              <AccordionSummary
+                expandIcon={<ArrowDownwardIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography component="span" variant='h5' sx={{ fontFamily: 'Rowdies', color: '#13A8ff' }}>How do solar panels work?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{ fontFamily: 'Kanit' }}>
+                  Solar panels convert sunlight into electricity using photovoltaic (PV) cells. This electricity can power your home or business, reducing your reliance on the grid.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{ padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ x: -150, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
-              <Typography component="span"  variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}> How long does it take to install solar panels?</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography  sx={{fontFamily:'Kanit'}}>
-                The installation process typically takes 1-3 days, but the entire process, including permits and approvals, may take a few weeks.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
-                       component={motion.div}
-                       initial={{x:-200,opacity:0}}
-                       whileInView={{x:0,opacity:1}}
-                       transition={{duration:0.8}}
-          >
-            <AccordionSummary
-              expandIcon={<ArrowDownwardIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
+              <AccordionSummary
+                expandIcon={<ArrowDownwardIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography component="span" variant='h5' sx={{ fontFamily: 'Rowdies', color: '#13A8ff' }}> How long does it take to install solar panels?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{ fontFamily: 'Kanit' }}>
+                  The installation process typically takes 1-3 days, but the entire process, including permits and approvals, may take a few weeks.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{ padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ x: -200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
-              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>Do solar panels work on cloudy or rainy days?</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography sx={{fontFamily:'Kanit'}}>
-                Yes, but efficiency may be reduced. Solar panels still generate electricity in indirect sunlight, though at a lower capacity.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
-                       component={motion.div}
-                       initial={{x:-250,opacity:0}}
-                       whileInView={{x:0,opacity:1}}
-                       transition={{duration:0.8}}
-          >
-            <AccordionSummary
-              expandIcon={<ArrowDownwardIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
+              <AccordionSummary
+                expandIcon={<ArrowDownwardIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography component="span" variant='h5' sx={{ fontFamily: 'Rowdies', color: '#13A8ff' }}>Do solar panels work on cloudy or rainy days?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{ fontFamily: 'Kanit' }}>
+                  Yes, but efficiency may be reduced. Solar panels still generate electricity in indirect sunlight, though at a lower capacity.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{ padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ x: -250, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
-              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>What is the lifespan of solar panels?</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography sx={{fontFamily:'Kanit'}}>
-                Most solar panels last 25-30 years, with some continuing to generate power beyond that period at reduced efficiency.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
-                       component={motion.div}
-                       initial={{x:-300,opacity:0}}
-                       whileInView={{x:0,opacity:1}}
-                       transition={{duration:0.8}}
-          >
-            <AccordionSummary
-              expandIcon={<ArrowDownwardIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
+              <AccordionSummary
+                expandIcon={<ArrowDownwardIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography component="span" variant='h5' sx={{ fontFamily: 'Rowdies', color: '#13A8ff' }}>What is the lifespan of solar panels?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{ fontFamily: 'Kanit' }}>
+                  Most solar panels last 25-30 years, with some continuing to generate power beyond that period at reduced efficiency.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{ padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ x: -300, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
-              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>How much maintenance do solar panels require?</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography sx={{fontFamily:'Kanit'}}>
-                Very little. Routine cleaning and occasional inspections ensure optimal performance.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion sx={{padding:'1rem',borderRadius:'10px'}}
-                       component={motion.div}
-                       initial={{x:-350,opacity:0}}
-                       whileInView={{x:0,opacity:1}}
-                       transition={{duration:0.8}}
-          >
-            <AccordionSummary
-              expandIcon={<ArrowDownwardIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
+              <AccordionSummary
+                expandIcon={<ArrowDownwardIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography component="span" variant='h5' sx={{ fontFamily: 'Rowdies', color: '#13A8ff' }}>How much maintenance do solar panels require?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{ fontFamily: 'Kanit' }}>
+                  Very little. Routine cleaning and occasional inspections ensure optimal performance.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{ padding: '1rem', borderRadius: '10px' }}
+              component={motion.div}
+              initial={{ x: -350, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
-              <Typography component="span" variant='h5' sx={{fontFamily:'Rowdies',color:'#13A8ff'}}>Can solar panels be installed on any type of roof?</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography sx={{fontFamily:'Kanit'}}>
-                Solar panels can be installed on most roof types, but factors like angle, material, and shading affect suitability. Our experts will assess your roof before installation.
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
+              <AccordionSummary
+                expandIcon={<ArrowDownwardIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <Typography component="span" variant='h5' sx={{ fontFamily: 'Rowdies', color: '#13A8ff' }}>Can solar panels be installed on any type of roof?</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{ fontFamily: 'Kanit' }}>
+                  Solar panels can be installed on most roof types, but factors like angle, material, and shading affect suitability. Our experts will assess your roof before installation.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
           </Box>
         </Box>
       </Box>
