@@ -92,7 +92,7 @@ import { ArrowDownward } from '@mui/icons-material';
           label="Phone Number"
           defaultValue=""
           variant="standard"
-        />
+        /> 
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
@@ -101,9 +101,9 @@ import { ArrowDownward } from '@mui/icons-material';
       </Dialog>
 
       <Box className="DisplayImage" sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Typography variant='h3' sx={{ color: "white", width: "70%", textAlign: "center", fontFamily: "Rowdies", fontSize: { xs: '2rem', sm: '3rem' } }} >Electricity bills? Never heard of them.BlueShield Energies  has changed the game!</Typography>
+        <Typography variant='h3' sx={{ color: "white", width: "70%", textAlign: "center", fontFamily: "Rowdies", fontSize: { xs: '2rem', sm: '3rem' } }} >Electricity bills? Never heard of them.BlueShield Energy  has changed the game!</Typography>
         <Typography variant='h6' sx={{ textAlign: 'center', color: 'white', width: '50%', marginTop: '1rem', fontFamily: 'Zain' }}>Let the sun fuel your home while you focus on what truly matters and say goodbye to rising electricity bills forever.</Typography>
-        <Button sx={{ background: '#42f72d', borderRadius: '21px', fontFamily: 'Zain', textTransform: 'none', color: '#0f6000', fontWeight: '600', marginTop: '1rem', letterSpacing: '1px' }}onClick={handleClickOpen} >&rarr; Get A Free Quote</Button>
+        <Button sx={{ background: '#42f72d', borderRadius: '21px', fontFamily: 'Zain', textTransform: 'none', color: '#0f6000', fontWeight: '600',fontSize:'1.2rem', marginTop: '1rem', letterSpacing: '1px' }}onClick={handleClickOpen} >&rarr; Get A Free Quote</Button>
       </Box>
       <Box sx={{ width: { sm: '80%', xs: '100%' }, display: 'flex', marginTop: '3rem', padding: '2rem', flexDirection: { xs: 'column', sm: 'row' } }}>
 

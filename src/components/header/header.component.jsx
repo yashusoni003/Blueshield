@@ -30,20 +30,20 @@ const  Header = (props) =>{
   const drawer = (
     <Box   onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2,width:'90%',fontFamily:'Major Mono Display',color:'#0ea6ff' }}>
-        Blueshield Energies
+        Blueshield Energy
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem  key={item} disablePadding>
             <ListItemButton  sx={{ textAlign: 'center' }}>
-              <ListItemText className='SideNavLinks' primary={item}  />
+              <ListItemText  className='SideNavLinks' primary={item} sx={{fontFamily:'Rowdies'}}/>
             </ListItemButton>
           </ListItem>
         ))}
           <ListItem  key='Contact Us' disablePadding>
             <ListItemButton  sx={{ textAlign: 'center' }}>
-              <ListItemText className='SideNavLinks' primary='Contact Us'  />
+              <ListItemText className='SideNavLinks' primary='Contact Us' />
             </ListItemButton>
           </ListItem>
       </List>
@@ -59,7 +59,7 @@ const  Header = (props) =>{
         <Toolbar sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
   <Box component="img" src="/logo.png" alt="Logo" sx={{ width: '3rem', height: "auto",borderRadius:'50%' }} />
-  <Typography className='CompanyName' variant="h6" sx={{ fontWeight: "bold" }}>BlueShield Energies</Typography>
+  <Typography className='CompanyName' variant="h6" sx={{ fontWeight: "bold" }}>BlueShield Energy</Typography>
 </Box>
           <IconButton
             color="inherit"
